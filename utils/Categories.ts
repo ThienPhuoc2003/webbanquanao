@@ -12,27 +12,27 @@ export const categories = [
     icon: MdStorefront,
   },
   {
-    label: 'Ao Nam',
+    label: 'Áo Nam',
     icon: RiShirtFill,
   },
   {
-    label: 'Ao Nu',
+    label: 'Áo Nữ',
     icon: GiPoloShirt,
   },
   {
-    label: 'Quan Nam',
+    label: 'Quần Nam',
     icon: GiTrousers,
   },
   {
-    label: 'Vay',
+    label: 'Váy',
     icon: GiAmpleDress,
   },
   {
-    label: 'Ao Khoat',
+    label: 'Áo Khoát',
     icon: GiSleevelessJacket,
   },
   {
-    label: 'Phu kien',
+    label: 'Phụ kiện',
     icon: AiOutlineSmallDash, // Icon for "Phu kien"
   },
 ];
