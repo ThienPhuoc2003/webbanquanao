@@ -6,15 +6,13 @@ import { MdAccessTimeFilled, MdDeliveryDining, MdDone } from "react-icons/md";
 import Status from "@/app/ components/Status";
 import moment from "moment";
 import OrderItem from "./OrderItem";
-import { useRouter } from "next/router";
-
 
 interface OrderDetailsProps{
     order:Order;
 }
 
 const OrderDetails:React.FC<OrderDetailsProps> = ({order}) => {
-    const router = useRouter();
+    
     return ( 
         <div className="max-w-[1150px] m-auto flex flex-col gap-2">
             <div className="mt-8">
