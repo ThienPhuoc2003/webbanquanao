@@ -15,8 +15,8 @@ const Footer  = () => {
                     <Link href='#'>Áo Nữ</Link>
                     <Link href='#'>Quần Nam</Link>
                     <Link href='#'>Váy</Link>
-                    <Link href='#'>Áo Khoát</Link>
-                    <Link href='#'>Phụ Kiện</Link>
+                    <Link href='#'>Áo khoát</Link>
+                    <Link href='#'>Phụ kiện</Link>
                 </FooterList>
                 <FooterList>
                     <h3 className="text-base font-bold
