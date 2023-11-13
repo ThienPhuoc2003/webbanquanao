@@ -1,12 +1,12 @@
 import prisma from '@/libs/prismadb'
-
 interface IParams{
-    productId?:string
+    productId?:string;
 }
+
 export default async function getProductById(params:IParams) {
-    try{
-        const{productId}=params;
-        const product =await prisma.product.findUnique({
+    try {
+        const {productId}=params
+        const product=await prisma.product.findUnique({
             where:{
                 id:productId
             },
@@ -21,11 +21,9 @@ export default async function getProductById(params:IParams) {
                 }
             }
         })
-        if(!product)
-        {
-            return null;
-        }
+        if(!product )return null;
         return product;
-    }catch(error:any)
-    {throw new Error (error)}
+    } catch (error:any) {
+        throw new Error(error)
+    }
 }
