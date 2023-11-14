@@ -21,6 +21,7 @@ export type CartProductType = {
     brand:string,
     selectedImg:SelectedImgType,
     quantity:number,
+    inStock: boolean,
     price:number
 
 }
@@ -43,6 +44,7 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
         brand:product.brand,
         selectedImg:{...product.images[0]},
         quantity:1,
+        inStock: product.inStock,  // Thêm trường inStock vào đây
         price:product.price,
     });
     const router = useRouter();
