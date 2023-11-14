@@ -58,23 +58,29 @@ export const CartContextProvider = (props: Props) => {
         getTotals()
     },[cartProducts])
 
-
-    // Define a function to add a product to the cart.
+    
     const handleAddProductToCart = useCallback((product: CartProductType) => {
+        // Kiểm tra nếu sản phẩm không còn hàng (Out of Stock), thì không thực hiện thêm vào giỏ hàng
+        if (!product.inStock) {
+            toast.error("Sản phẩm đã hết hàng.");
+            return;
+        }
+    
         setCartProducts((prev) => {
             let updatedCart;
-
+    
             if (prev) {
                 updatedCart = [...prev, product];
             } else {
                 updatedCart = [product];
             }
+    
             toast.success("Product added to cart");
             localStorage.setItem('eShopCartItems', JSON.stringify(updatedCart));
             return updatedCart;
         });
     }, []);
-
+    
     // Define a function to remove a product from the cart.
     const handleRemoveProductFromCart = useCallback((product: CartProductType) => {
         if (cartProducts) {
