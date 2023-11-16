@@ -61,7 +61,7 @@ const CheckoutForm:React.FC<CheckoutFormProps> = ({clientSecret,handleSetPayment
         <h2 className="font-semibold mb-2">
         Thông tin địa chỉ
         </h2>
-        <AddressElement options={{mode:'shipping',allowedCountries: /*allCountries*/ ["VN","KE"]}}/>
+        <AddressElement options={{mode:'shipping',allowedCountries: /*allCountries*/ ["VN","KE",'US', 'VN', 'CA', 'GB', 'FR', 'DE', 'AU', 'JP', 'CN', 'IN','NK']}}/>
         <h2 className="font-semibold mt-4 mb-2">Thông tin thanh toán</h2>
         <PaymentElement id="payment-element" options={{layout:"tabs"}}/>
         <div className="py-4 text-center text-slate-700 text-x1 font-bold">

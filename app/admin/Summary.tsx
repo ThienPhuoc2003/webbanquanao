@@ -24,7 +24,7 @@ type SummaryDataType={
 const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
   const [summaryData,setSummaryData]=useState<SummaryDataType>({
         sale:{
-            lable:'Total Sale',
+            lable:'Tổng doanh thu',
             digit:0
         },
         products:{
@@ -32,7 +32,7 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
             digit:0
         },
         orders:{
-            lable:'Total Orders',
+            lable:'Tổng số sản phẩm',
             digit:0
         },
         paidOrders:{
@@ -40,12 +40,12 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
             digit:0
         },
         unpaidOrders:{
-            lable:'Unpaid Orders',
+            lable:'Đơn đặt hàng đã thanh toán',
             digit:0
         },
        
         users:{
-            lable:'Total Users',
+            lable:'Tổng số người dùng',
             digit:0
         },
   })
