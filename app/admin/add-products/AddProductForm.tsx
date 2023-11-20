@@ -67,15 +67,15 @@ const AddProductForm = () => {
         let UploadedImages:UploadImageType[]=[]
         if(!data.category){
             setIsLoading(false)
-            return toast.error('Category is not selected')
+            return toast.error('Danh mục chưa được chọn')
         }
         if(!data.images || data.images.length===0)
         {
             setIsLoading(false)
-            return toast.error('No selected images!')
+            return toast.error('Không có hình ảnh nào được chọn!')
         }
         const handleImageUploads = async()=>{
-            toast("Creating product, please wait..");
+            toast("Đang tạo sản phẩm, vui lòng chờ..");
             try{
                 for(const item of data.images)
                 {
@@ -123,18 +123,18 @@ const AddProductForm = () => {
             }catch(error){
                     setIsLoading(false)
                     console.log('Error handling image uploads',error);
-                    return toast.error ('Error handling image uploads');
+                    return toast.error ('Lỗi xử lý tải lên hình ảnh');
             }
         };
         await handleImageUploads();
         const productData={...data,images:UploadedImages};
 
        axios.post('/api/product',productData).then(()=>{
-        toast.success('Product created');
+        toast.success('Sản phẩm đã được tạo');
         setIsProductCreated(true);
         router.refresh();
        }).catch((error)=>{
-        toast.error('Something went wrong when saving product to db');
+        toast.error('Đã xảy ra lỗi khi lưu sản phẩm vào dữ liệu');
        }).finally(()=>{
         setIsLoading(false);
        });
@@ -168,28 +168,28 @@ const AddProductForm = () => {
 }
 )},[])
     return (  <>
-    <Heading title="Add a Product " center/>
-    <Input id="name" label="Name" disabled={isLoading} 
+    <Heading title="Thêm một sản phẩm " center/>
+    <Input id="name" label="Tên" disabled={isLoading} 
     register={register}
     errors={errors}
     required />
-    <Input id="price" label="Price" disabled={isLoading} 
+    <Input id="price" label="Giá" disabled={isLoading} 
     register={register}
     errors={errors}
     type="number"
     required />
-    <Input id="brand" label="Brand" disabled={isLoading} 
+    <Input id="brand" label="Thương hiệu" disabled={isLoading} 
     register={register}
     errors={errors}
     required />
-    <TextArea id="description" label="Description" disabled={isLoading} 
+    <TextArea id="description" label="Mô tả" disabled={isLoading} 
     register={register}
     errors={errors}
     required />
-    <CustomCheckBox id="inStock"register={register} label="This Product is in stock"/>
+    <CustomCheckBox id="inStock"register={register} label="Sản phẩm này còn trong kho"/>
 
     <div className="w-full font-medium ">
-        <div className="mb-2 font-semibold">Select a Category</div>
+        <div className="mb-2 font-semibold">Chọn một danh mục</div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h[50vh] overflow-y-auto">
             {
             categories.map((item)=>{
@@ -207,10 +207,9 @@ const AddProductForm = () => {
          <div className="w-full flex flex-col flex-wrap gap-4">
             <div>
                 <div className="font-bold">
-                Select the available product colors and upload their images
+                Chọn màu sắc sản phẩm có sẵn và tải lên hình ảnh của chúng
                 </div>
-                <div className="font-bold">You must upload an image for each of the color selected otherwise your
-                color selection will be ignored</div>
+                <div className="font-bold">Vui lòng chọn và tải ảnh lên </div>
             </div>
             <div className="grid grid-cols-2 gap-3">
                 {colors.map((item,index)=>{
@@ -221,7 +220,7 @@ const AddProductForm = () => {
                 />)
             })}</div>
          </div>
-         <Button label={isLoading?'Loading...':'Add Product'}onClick={handleSubmit(onSubmit)}/>
+         <Button label={isLoading?'Đang tải...':'Thêm sản phẩm'}onClick={handleSubmit(onSubmit)}/>
  </>
     );
 }

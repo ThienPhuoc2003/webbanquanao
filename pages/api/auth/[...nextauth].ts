@@ -26,7 +26,7 @@ export const authOptions:AuthOptions={adapter: PrismaAdapter(prisma),
           },
           async authorize(credentials) {
               if (!credentials?.email || !credentials.password) {
-                  throw new Error('Invalid email or password');
+                  throw new Error('Email hoặc mật khẩu không hợp lệ');
               }
             
               const user = await prisma.user.findUnique({
@@ -35,7 +35,7 @@ export const authOptions:AuthOptions={adapter: PrismaAdapter(prisma),
                   }
               })
               if(!user || !user?.hashedPassword){
-                  throw new Error('Invalid email or password')
+                  throw new Error('Email hoặc mật khẩu không hợp lệ')
               }
               const isCorrectPassword = await bcrypt.compare(
                   credentials.password,
@@ -43,7 +43,7 @@ export const authOptions:AuthOptions={adapter: PrismaAdapter(prisma),
               )
               if(!isCorrectPassword)
               {
-                  throw new Error('Invalid email or password')
+                  throw new Error('Email hoặc mật khẩu không hợp lệ')
               }
               return user;
           }

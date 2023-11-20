@@ -14,7 +14,7 @@ interface IPrams{
 const Product  = async({params} : {params:IPrams}) => {
 const product =await getProductById(params)
 const user = await getCurrentUser()
-if(!product) return<NullData title="Oops! Product with the given id does not exist"/>
+if(!product) return<NullData title="Rất tiếc! Sản phẩm có id đã cho không tồn tại"/>
     
     return ( <div className="p-8">
         <Container>

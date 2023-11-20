@@ -23,12 +23,12 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
     {
     return ( 
     <div className="flex flex-col items-center">
-        <div className="text-2xl">Your cart is empty </div>
+        <div className="text-2xl">Giỏ của bạn trống </div>
         <div>
             <Link  href={"/"} className="text-slate-500 flex items-center gap-1 mt-2">
                 <MdArrowBack/>
             <span>
-                Start Shopping
+            Bắt đầu mua sắm
             </span>
             </Link>
         </div>
@@ -40,7 +40,7 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
 
     return(
         <div>
-        <Heading title="Shopping Cart" center/>
+        <Heading title="Giỏ hàng" center/>
         <div className="grid 
         grid-cols-5 
         text-xs 
@@ -49,10 +49,10 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
          items-center 
          mt-8">
             
-            <div className="col-span-2 justify-self-start">PRODUCT</div>
-            <div className="justify-self-center">PRICE</div>
-            <div className="justify-self-center">QUANTITY</div>
-            <div className="justify-self-end">TOTAL</div>
+            <div className="col-span-2 justify-self-start">Sản phẩm</div>
+            <div className="justify-self-center">Giá</div>
+            <div className="justify-self-center">Số lượng</div>
+            <div className="justify-self-end">Tổng cộng</div>
             </div>
             <div>{cartProducts && cartProducts.map((item)=>{
                 return <ItemContent key={item.id} item={item}/>;
@@ -60,16 +60,16 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
                 </div>
                 <div className="border-t-[1.5px] border-slate-200 py-4 flex justify-between gap-4">
                     <div className="w-[90px]">
-                        <Button label="Clear Cart" onClick={()=>{handleClearCart()
+                        <Button label="Xóa tất cả " onClick={()=>{handleClearCart()
                         }} small outline />
                     </div>
                     <div className="text-sm flex flex-col gap-1 items-start">
                         <div className="flex justify-between w-full text-base font-semibold">
-                            <span>Subtotal</span>
+                            <span>Tổng phụ</span>
                             <span>{formatPrice(cartTotalAmount)}</span>
                             </div>
-                            <p className="text-slate-500">Taxes and shiping calculate at checkout</p>
-                            <Button label={currentUser? 'Checkout':"Login To Checkout" } 
+                            <p className="text-slate-500">Tính thuế và phí vận chuyển khi thanh toán</p>
+                            <Button label={currentUser? 'Thanh toán':"Đăng nhập để thanh toán" } 
                             outline={currentUser? false:true}
                             onClick={()=>{
                                 currentUser? router.push('/checkout'):router.push('/login');
@@ -77,7 +77,7 @@ const CartClient:React.FC<CartClientProps> = ({currentUser}) => {
                             <Link  href={"/"} className="text-slate-500 flex items-center gap-1 mt-2">
                 <MdArrowBack/>
             <span>
-                Continue Shopping
+            Tiếp tục mua sắm
             </span>
             </Link>
                             </div>

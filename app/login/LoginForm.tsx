@@ -40,7 +40,7 @@ const LoginForm:React.FC<LoginFormProps> = ({currentUser}) => {
       if (callback?.ok) {
         router.push("/cart");
         router.refresh();
-        toast.success('Logged In');
+        toast.success('Đăng nhập');
       }
       if (callback?.error) {
         toast.error(callback.error);
@@ -49,7 +49,7 @@ const LoginForm:React.FC<LoginFormProps> = ({currentUser}) => {
   };
 if(currentUser)
 {
-  return<p className="text-center">Logged in .Redirecting...</p>
+  return<p className="text-center">Đã đăng nhập .Chuyển hướng...</p>
 }
   return (
     <>
@@ -71,14 +71,14 @@ if(currentUser)
       />
       <Input
         id="password" 
-        label="Password"
+        label="Mật khẩu"
         disabled={isLoading}
         register={register}
         errors={errors}
         required
         type="password"
       />
-      <Button label={isLoading ? "Loading" : 'Đăng nhập'} onClick={handleSubmit(onSubmit)} />
+      <Button label={isLoading ? "Đang tải" : 'Đăng nhập'} onClick={handleSubmit(onSubmit)} />
       <p className="text-sm">Bạn chưa có tài khoản?{" "} <Link className="underline" href='/register'>Đăng ký</Link></p>
     </>
   );

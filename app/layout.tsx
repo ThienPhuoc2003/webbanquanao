@@ -24,7 +24,7 @@ export default async function RootLayout({
   console.log("user<<<",currentUser);
 
   return (
-    <html lang="en">
+    <html lang="vi">
       <body className={`${poppins.className} 
       text-slate-700`}>
         <Toaster toastOptions={

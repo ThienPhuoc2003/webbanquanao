@@ -19,7 +19,7 @@ export async function POST(request:Request) {
     const currentUser = await getCurrentUser()
     if(!currentUser)
     {
-        return NextResponse.json({error:'Unauthorized'},{status:401})
+        return NextResponse.json({error:'Không được phép'},{status:401})
     }
     const body = await request.json()
     const {items,payment_intent_id}=body
@@ -60,7 +60,7 @@ export async function POST(request:Request) {
         ])
         if(!existing_order)
         {
-            return NextResponse.json({error:'Invaild Payment Intent'},{status:400});
+            return NextResponse.json({error:'Mục đích thanh toán không hợp lệ'},{status:400});
         }
         return NextResponse.json({paymentIntent:updated_intent})
     }

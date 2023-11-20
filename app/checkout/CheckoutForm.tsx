@@ -45,7 +45,7 @@ const CheckoutForm:React.FC<CheckoutFormProps> = ({clientSecret,handleSetPayment
         }).then(result=>{
             if(!result.error)
             {
-                toast.success('Checkouts Success');
+                toast.success('Thanh toán thành công');
                 handleClearCart();
                 handleSetPaymentSuccess(true);
                 handleSetPaymentIntent(null);
@@ -67,7 +67,7 @@ const CheckoutForm:React.FC<CheckoutFormProps> = ({clientSecret,handleSetPayment
         <div className="py-4 text-center text-slate-700 text-x1 font-bold">
         Tổng cộng:{formattedPrice}
         </div>
-        <Button label={isLoading? 'Processing':'Pay now'} disabled={isLoading || !stripe || !elements } onClick={()=>{}}/>
+        <Button label={isLoading? 'Đang xử lý':'Thanh toán ngay'} disabled={isLoading || !stripe || !elements } onClick={()=>{}}/>
         </form>);
 }
  

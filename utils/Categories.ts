@@ -8,7 +8,7 @@ import { AiOutlineSmallDash } from 'react-icons/ai';
 
 export const categories = [
   {
-    label: 'All',
+    label: 'Tất cả',
     icon: MdStorefront,
   },
   {
@@ -28,7 +28,7 @@ export const categories = [
     icon: GiAmpleDress,
   },
   {
-    label: 'Áo Khoát',
+    label: 'Áo Khoác',
     icon: GiSleevelessJacket,
   },
   {

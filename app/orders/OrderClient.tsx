@@ -37,13 +37,13 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         });
     }
     const columns:GridColDef[]=[
-        {field:'id',headerName:'ID',width:220},
-        {field:'customer',headerName:'Customer Name',width:130},
-        {field:'amount',headerName:'Price(VND)',width:130,renderCell:(params)=>{
+        {field:'id',headerName:'Mã khách hàng',width:220},
+        {field:'customer',headerName:'Tên khách hàng',width:130},
+        {field:'amount',headerName:'Giá(VND)',width:130,renderCell:(params)=>{
             return(<div className="font-bold text-slate-800">{params.row.amount}</div>);
         },
     },
-    {field:'deliveryStatus',headerName:"Delivery Status",width:130,renderCell:(params)=>{
+    {field:'deliveryStatus',headerName:"Tình trạng giao hàng",width:130,renderCell:(params)=>{
         return(<div>{params.row.deliveryStatus=='pending'?
             (
             <Status text="pending"
@@ -67,7 +67,7 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         );
     },
     },
-        {field:'paymentStatus',headerName:"Payment Status",width:130,renderCell:(params)=>{
+        {field:'paymentStatus',headerName:"Tình trạng thanh toán",width:130,renderCell:(params)=>{
     return(<div>{params.row.paymentStatus=='pending'?
         (
         <Status text="pending"
@@ -92,7 +92,7 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
     headerName:"Date",
     width:130,
 },
-    {field:"action",headerName:"Actions",width:200,renderCell:(params)=>{
+    {field:"action",headerName:"Hành động",width:200,renderCell:(params)=>{
         return(<div className="flex justify-between gap-4 w-full">
            
             <ActionBtn icon={MdRemoveRedEye} onClick={()=>{router.push(`/order/${params.row.id}`)}}/>
@@ -103,7 +103,7 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
  
     return ( <div className="max-w-[1150px] m-auto text-x1">
         <div className="mb-4 mt-8">
-            <Heading title="Manage Orders" center />
+            <Heading title="Quản lý đơn hàng" center />
         </div >
         <div style={{height:600 ,width:"100%"}}>
         <DataGrid

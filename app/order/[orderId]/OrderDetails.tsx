@@ -21,7 +21,7 @@ interface OrderDetailsProps {
     return (
       <div className="max-w-[1150px] m-auto flex flex-col gap-2">
         <div className="mt-8">
-          <Heading title="Order details" />
+          <Heading title="Chi tiết đặt hàng" />
         </div>
         <div>Order ID: {order.id}</div>
         <div>
@@ -58,12 +58,12 @@ interface OrderDetailsProps {
         </div>
         <div>Date: {moment(order.createDate).fromNow()}</div>
         <div>
-          <h2 className="font-semibold mt-4 mb-2">Product ordered</h2>
+          <h2 className="font-semibold mt-4 mb-2">Sản phẩm đã đặt hàng</h2>
           <div className="grid grid-cols-5 text-sx gap-4 pb-2 items-center">
-            <div className="col-span-2 justify-self-start">PRODUCT</div>
-            <div className="justify-self-center">PRICE</div>
-            <div className="justify-self-center">QTY</div>
-            <div className="justify-self-end">TOTAL</div>
+            <div className="col-span-2 justify-self-start">Sản phẩm</div>
+            <div className="justify-self-center">Gía</div>
+            <div className="justify-self-center">Số lượng</div>
+            <div className="justify-self-end">Tổng cộng</div>
           </div>
           {order.products &&
             order.products.map((item) => {

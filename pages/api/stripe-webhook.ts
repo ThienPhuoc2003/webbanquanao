@@ -18,7 +18,7 @@ export default async function handler(req:NextApiRequest,
         const sig=req.headers['strict-signature']
         if(!sig)
         {
-            return res.status(400).send("Missing the stripe signature ")
+            return res.status(400).send("Thiếu chữ ký sọc ")
         }
         let event :Stripe.Event
         try {
@@ -26,7 +26,7 @@ export default async function handler(req:NextApiRequest,
                 buf,sig,process.env.STRIPE_WEBHOOK_SECRET!
             );
         }catch(err){
-            return res.status(400).send("Webhook error"+err);
+            return res.status(400).send("Lỗi móc trang web"+err);
         }
         switch(event.type){
             case 'charge.succeeded':
@@ -39,7 +39,7 @@ export default async function handler(req:NextApiRequest,
                  }
                  break
                  default:
-                    console.log('Unhandle event type:'+event.type);
+                    console.log('Loại sự kiện chưa được xử lý:'+event.type);
                 }
             res.json({received:true});
             }

@@ -43,7 +43,7 @@ const CheckoutClient = () => {
     }).catch((error)=>{
          setError(true);
          console.log("Error",error);
-         toast.error("Something went wrong");
+         toast.error("Đã xảy ra lỗi");
     })
         }
     },[cartProducts,paymentIntent]);
@@ -64,12 +64,12 @@ const CheckoutClient = () => {
             handleSetPaymentSuccess={handleSetPaymentSuccess}/>
         </Elements> 
     )}
-    {loading&& <div className="text-center"> Loading Checkout... </div>}
-    {error && <div className="text-center text-rose-500 ">Somnething went wrong...</div>}
+    {loading&& <div className="text-center"> Đang tải thanh toán... </div>}
+    {error && <div className="text-center text-rose-500 ">Đã xảy ra lỗi...</div>}
     {paymentSuccess &&(
     <div className="flex items-center flex-col gap-4">
-        <div className="text-teal-500 text-center">Payment Success</div>
-        <div className="max-w-[220px] w-full "><Button label="View Your Orders" onClick={()=> router.push('/order')}/></div>
+        <div className="text-teal-500 text-center">Thanh toán thành công</div>
+        <div className="max-w-[220px] w-full "><Button label="Xem đơn đặt hàng của bạn" onClick={()=> router.push('/order')}/></div>
     </div>)}
     </div>);
 }

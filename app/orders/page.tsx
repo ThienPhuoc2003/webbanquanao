@@ -7,11 +7,11 @@ import getOrdersByUserId from "@/actions/getOrdersByUserId"
 const Orders =async()=>{
     const currentUser=await getCurrentUser()
     if(!currentUser){
-        return <NullData title="Oops ! Access denied"/>
+        return <NullData title="Rất tiếc !Quyền truy cập bị từ chối"/>
     }
     const orders=await getOrdersByUserId(currentUser.id)
     if(!orders){
-        return <NullData title="No orders yet..."/>
+        return <NullData title="Chưa có đơn đặt hàng nào..."/>
     }
     return (
         <div className="pt-8">

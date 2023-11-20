@@ -11,18 +11,18 @@ const CartCount = () => {
             <CiShoppingCart/>
         </div>
         <span className="absolute
-        top-[-10px]
+        top-[-3px]
         right-[-10px]
-        bg-slate-700
+        bg-slate-400
         text-white
-        h-6
-        w-6
+        h-4
+        w-4
         rounded-full
         flex
         items-center
         justify-center
         text-sm
-        ">
+        " style={{background:'red'}}>
             {cartTotalQty}
         </span>
     </div> );

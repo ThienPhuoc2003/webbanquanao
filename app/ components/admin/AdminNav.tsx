@@ -12,13 +12,13 @@ const AdminNav = () => {
         <Container>
             <div className="flex flex-row items-center justify-between md:justify-center gap-8 md:gap-12 overflow-x-auto flex-nowrap">
         <Link href='/admin'> 
-        <AdminNavItem label="Summary" icon={MdDashboard} selected={pathname==" /admin"}/></Link>
+        <AdminNavItem label="Bản tóm tắt" icon={MdDashboard} selected={pathname==" /admin"}/></Link>
         <Link href='/admin/add-products'>
-        <AdminNavItem label="AddProduct" icon={MdLibraryAdd} selected={pathname=="/admin/add-products"}/></Link>
+        <AdminNavItem label="Thêm sản phẩm" icon={MdLibraryAdd} selected={pathname=="/admin/add-products"}/></Link>
         <Link href='/admin/manage-products'>
-        <AdminNavItem label="ManageProducts" icon={MdDns} selected={pathname=="/admin/manage-products"}/></Link>
+        <AdminNavItem label="Quản lý sản phẩm" icon={MdDns} selected={pathname=="/admin/manage-products"}/></Link>
         <Link href='/admin/manage-orders'>
-        <AdminNavItem label="ManageOrders" icon={MdFormatListBulleted} selected={pathname=="/admin/manage-orders"}/></Link>
+        <AdminNavItem label="Quản lý đơn hàng" icon={MdFormatListBulleted} selected={pathname=="/admin/manage-orders"}/></Link>
             </div>
         </Container>
     </div> );

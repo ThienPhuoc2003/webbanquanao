@@ -52,10 +52,10 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
             cursor-pointer">
                 {currentUser ?  <div>
                     <Link href="/orders">
-                    <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
+                    <MenuItem onClick={toggleOpen}>Đơn đặt hàng của bạn</MenuItem>
                 </Link>
                 <Link href="/admin">
-                    <MenuItem onClick={toggleOpen}>Admin Dashboard</MenuItem>
+                    <MenuItem onClick={toggleOpen}>Trang quản trị viên</MenuItem>
                 </Link>
                 <hr/>
                 <MenuItem onClick={()=>{
@@ -65,10 +65,10 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
                 </MenuItem>
                  </div> : <div>
                     <Link href="/login">
-                    <MenuItem onClick={toggleOpen}>Login</MenuItem>
+                    <MenuItem onClick={toggleOpen}>Đăng nhập</MenuItem>
                     </Link>
                     <Link href="/register">
-                    <MenuItem onClick={toggleOpen}>Register</MenuItem>
+                    <MenuItem onClick={toggleOpen}>Đăng ký</MenuItem>
                     </Link>
                 </div>}
                

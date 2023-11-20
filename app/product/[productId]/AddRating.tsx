@@ -41,7 +41,7 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
 
         if(data.rating===0){
             setIsLoading(false)
-            return toast.error('No rating selected')
+            return toast.error('Không có đánh giá nào được chọn')
        } 
        const ratingData={...data,userId:user?.id,product:product}
 
@@ -50,7 +50,7 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
             router.refresh()
             reset()
         }).catch((error)=>{
-            toast.error('Something went wrong')
+            toast.error('Đã xảy ra lỗi')
         }).finally(()=>{
             setIsLoading(false)
         })
@@ -74,13 +74,13 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
             }}/>
             <Input
                 id='comment'
-                label='comment'
+                label='Bình luận'
                 disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
             />
-            <Button label={isLoading ?"Loading": 'Rate Product'} onClick={handleSubmit(onSubmit)}/>
+            <Button label={isLoading ?"Đang tải": 'Đánh giá sản phẩm'} onClick={handleSubmit(onSubmit)}/>
         </div>
     );
 }
