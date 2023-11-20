@@ -46,7 +46,7 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
        const ratingData={...data,userId:user?.id,product:product}
 
         axios.post('/api/rating',ratingData).then(()=>{
-            toast.success('Rating submitted');
+            toast.success('Đã gửi xếp hạng');
             router.refresh()
             reset()
         }).catch((error)=>{
@@ -68,7 +68,7 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
 
     return(
         <div className="flex flex-col gap-2  max-w-[500px]">
-            <Heading title="Rate this product"/>
+            <Heading title="Đánh giá sản phẩm này"/>
             <Rating onChange={(event,newValue)=>{
                 setCustomValue('rating',newValue)
             }}/>
@@ -79,7 +79,7 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
                 register={register}
                 errors={errors}
                 required
-            />
+            />  
             <Button label={isLoading ?"Đang tải": 'Đánh giá sản phẩm'} onClick={handleSubmit(onSubmit)}/>
         </div>
     );

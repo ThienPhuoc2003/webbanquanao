@@ -78,7 +78,7 @@ if(currentUser)
         required
         type="password"
       />
-      <Button label={isLoading ? "Đang tải" : 'Đăng nhập'} onClick={handleSubmit(onSubmit)} />
+      <Button label={isLoading ? "Loading" : 'Đăng nhập'} onClick={handleSubmit(onSubmit)} />
       <p className="text-sm">Bạn chưa có tài khoản?{" "} <Link className="underline" href='/register'>Đăng ký</Link></p>
     </>
   );

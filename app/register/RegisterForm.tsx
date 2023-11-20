@@ -85,7 +85,7 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
     errors={errors}
     required
     type="password"/>
-    <Button label={isLoading?"Đăng tải":'Đăng ký'} onClick={handleSubmit(onSubmit)}/>
+    <Button label={isLoading?"Loading":'Đăng ký'} onClick={handleSubmit(onSubmit)}/>
     <p className="text-sm">Bạn đã sẵn sàng tạo tài khoản chưa?{""} <Link className="underline" href='/login'>Log in
     </Link>
         </p>

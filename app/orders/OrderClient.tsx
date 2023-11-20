@@ -46,13 +46,13 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
     {field:'deliveryStatus',headerName:"Tình trạng giao hàng",width:130,renderCell:(params)=>{
         return(<div>{params.row.deliveryStatus=='pending'?
             (
-            <Status text="pending"
+            <Status text="chưa giải quyết"
             icon={MdAccessTimeFilled}
             bg="bg-teal-200"
             color="text-teal-700"
             />
             ):params.row.deliveryStatus=='dispatched'?(
-                <Status text="completed" icon={MdDeliveryDining}
+                <Status text="hoàn thành" icon={MdDeliveryDining}
                 bg="bg-purple-200"
                 color="text-purple-700"
                 />
@@ -70,13 +70,13 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         {field:'paymentStatus',headerName:"Tình trạng thanh toán",width:130,renderCell:(params)=>{
     return(<div>{params.row.paymentStatus=='pending'?
         (
-        <Status text="pending"
+        <Status text="chưa giải quyết"
         icon={MdAccessTimeFilled}
         bg="bg-teal-200"
         color="text-teal-700"
         />
         ):  params.row.paymentStatus=='complete'?(
-            <Status text="completed" icon={MdDone}
+            <Status text="hoàn thành" icon={MdDone}
             bg="bg-purple-200"
             color="text-purple-700"
             />
@@ -89,7 +89,7 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
     },
 {
     field:"date",
-    headerName:"Date",
+    headerName:"Thời gian",
     width:130,
 },
     {field:"action",headerName:"Hành động",width:200,renderCell:(params)=>{

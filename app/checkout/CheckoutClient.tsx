@@ -69,7 +69,7 @@ const CheckoutClient = () => {
     {paymentSuccess &&(
     <div className="flex items-center flex-col gap-4">
         <div className="text-teal-500 text-center">Thanh toán thành công</div>
-        <div className="max-w-[220px] w-full "><Button label="Xem đơn đặt hàng của bạn" onClick={()=> router.push('/order')}/></div>
+        <div className="max-w-[220px] w-full "><Button label="Xem đơn đặt hàng của bạn" onClick={()=> router.push('/orders')}/></div>
     </div>)}
     </div>);
 }
