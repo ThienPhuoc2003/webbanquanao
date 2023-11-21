@@ -49,7 +49,11 @@ const LoginForm:React.FC<LoginFormProps> = ({currentUser}) => {
   };
 if(currentUser)
 {
+<<<<<<< HEAD
   return<p className="text-center">Đã đang nhập,chờ một xíu...</p>
+=======
+  return<p className="text-center">Đã đăng nhập .Chuyển hướng...</p>
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
 }
   return (
     <>
@@ -71,7 +75,7 @@ if(currentUser)
       />
       <Input
         id="password" 
-        label="Password"
+        label="Mật khẩu"
         disabled={isLoading}
         register={register}
         errors={errors}

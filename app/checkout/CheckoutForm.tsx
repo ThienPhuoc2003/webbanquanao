@@ -67,7 +67,11 @@ const CheckoutForm:React.FC<CheckoutFormProps> = ({clientSecret,handleSetPayment
         <div className="py-4 text-center text-slate-700 text-x1 font-bold">
         Tổng cộng:{formattedPrice}
         </div>
+<<<<<<< HEAD
         <Button label={isLoading? 'Đang thanh toán':'Thanh toán bây giờ'} disabled={isLoading || !stripe || !elements } onClick={()=>{}}/>
+=======
+        <Button label={isLoading? 'Đang xử lý':'Thanh toán ngay'} disabled={isLoading || !stripe || !elements } onClick={()=>{}}/>
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         </form>);
 }
  

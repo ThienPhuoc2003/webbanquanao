@@ -11,7 +11,11 @@ const ManageProducts = async () => {
 
     if(!currentUser||currentUser.role != 'ADMIN')
     {
+<<<<<<< HEAD
         return <NullData title='Bạn không có quyền truy cập'/>;
+=======
+        return <NullData title='Rất tiếc!Quyền truy cập bị từ chối'/>;
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
     }
     return (  <div className="pt-8"><Container>
         <ManageProductsClient products={products}/>

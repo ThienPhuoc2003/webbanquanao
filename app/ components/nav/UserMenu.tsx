@@ -52,10 +52,17 @@ const UserMenu:React.FC<UserMenuProps> = ({currentUser}) => {
             cursor-pointer">
                 {currentUser ?  <div>
                     <Link href="/orders">
+<<<<<<< HEAD
                     <MenuItem onClick={toggleOpen}>Bạn đặt hàng</MenuItem>
                 </Link>
                 <Link href="/admin">
                     <MenuItem onClick={toggleOpen}>Bảng của quản lý</MenuItem>
+=======
+                    <MenuItem onClick={toggleOpen}>Đơn đặt hàng của bạn</MenuItem>
+                </Link>
+                <Link href="/admin">
+                    <MenuItem onClick={toggleOpen}>Trang quản trị viên</MenuItem>
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
                 </Link>
                 <hr/>
                 <MenuItem onClick={()=>{

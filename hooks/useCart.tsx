@@ -75,8 +75,8 @@ export const CartContextProvider = (props: Props) => {
                 updatedCart = [product];
             }
     
-            toast.success("Product added to cart");
-            localStorage.setItem('eShopCartItems', JSON.stringify(updatedCart));
+            toast.success("Sản phẩm đã được thêm vào giỏ hàng");
+            localStorage.setItem('Giỏ hàng các mặt hàng', JSON.stringify(updatedCart));
             return updatedCart;
         });
     }, []);
@@ -86,8 +86,8 @@ export const CartContextProvider = (props: Props) => {
         if (cartProducts) {
             const filteredProducts = cartProducts.filter((item) => item.id !== product.id);
             setCartProducts(filteredProducts);
-            toast.success("Product removed from cart");
-            localStorage.setItem("eShopCartItems", JSON.stringify(filteredProducts));
+            toast.success("Sản phẩm đã bị xóa khỏi giỏ hàng");
+            localStorage.setItem("Giỏ hàng các mặt hàng", JSON.stringify(filteredProducts));
         }
     }, [cartProducts]);
         const handleCartQtyIncrease = useCallback((product:CartProductType)=>{
@@ -104,7 +104,7 @@ export const CartContextProvider = (props: Props) => {
                     ++ updatedCart[existingIndex].quantity 
                 }
                 setCartProducts(updatedCart);
-                localStorage.setItem('eShopCartItems',JSON.stringify(updatedCart))
+                localStorage.setItem('Giỏ hàng các mặt hàng',JSON.stringify(updatedCart))
             }
         },[cartProducts]);
 
@@ -123,17 +123,17 @@ export const CartContextProvider = (props: Props) => {
                     -- updatedCart[existingIndex].quantity 
                 }
                 setCartProducts(updatedCart);
-                localStorage.setItem('eShopCartItems',JSON.stringify(updatedCart))
+                localStorage.setItem('Giỏ hàng các mặt hàng',JSON.stringify(updatedCart))
             }
         },[cartProducts]);
 
         const handleClearCart = useCallback(()=>{
             setCartProducts(null)
             setCartTotalQty(0)
-            localStorage.setItem('eShopCartItems',JSON.stringify(null));
+            localStorage.setItem('Giỏ hàng các mặt hàng',JSON.stringify(null));
         },[cartProducts]);
         const handleSetPaymentIntent = useCallback((val:string|null)=>{setPaymentIntent(val)
-        localStorage.setItem('LuxeGlobalPaymentIntent',JSON.stringify(val));
+        localStorage.setItem('Ý định thanh toán của LuxeGlobal',JSON.stringify(val));
         },[paymentIntent])
     // Provide the cart context value to consumers.
     const value = {
@@ -156,7 +156,7 @@ export const useCart =()=>{
      const context = useContext(CartContext);
      if(context=== null)
      {
-        throw new Error("useCart must be used within a CartContextProvider")
+        throw new Error("sử dụng Giỏ hàng phải được sử dụng trong Nhà cung cấp bối cảnh giỏ hàng")
      }
      return context;
 };

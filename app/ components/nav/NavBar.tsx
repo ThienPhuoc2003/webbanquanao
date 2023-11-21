@@ -22,7 +22,7 @@ const NavBar = async () => {
   shadow-sm
   "
   >
-    <div className="py-4 border-b-[1px]">
+    <div className="py-4 border-b-[1px]" style={{background:'linear-gradient(45deg, #f3bcbc, #ffba72)'}}>
       <Container>
         <div className=" flex
         items-center

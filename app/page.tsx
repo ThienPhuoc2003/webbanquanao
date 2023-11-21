@@ -14,7 +14,7 @@ export default async function Home({searchParams}:HomProps) {
 const products=await getProducts(searchParams)
 
 if(products.length===0){
-  return <NullData title="Oops! No products found.Click all  to clear filters"/>
+  return <NullData title="Rất tiếc! Không tìm thấy sản phẩm nào.Nhấp vào tất cả để xóa bộ lọc"/>
 }
 function shuffleArray (array:any){
   for(let i=array.length-1;i>0;i--){
@@ -31,9 +31,9 @@ const shuffleProducts=shuffleArray(products)
         <div>
           <HomeBanner/>
           </div>
-          <div className="grid grid-cols-2 
+          <div className="grid grid-cols-2
           sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 
-          2xl:grid-cols-6 gap:8" >
+          2xl:grid-cols-6 " style={{gap: '5px'}}>
             {products.map((product: any)  =>{
               // eslint-disable-next-line react/jsx-key
               return <ProductCard data={product} />;            

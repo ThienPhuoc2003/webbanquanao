@@ -11,7 +11,11 @@ const ListRating:React.FC<ListRatingProps> = ({product}) => {
     if(product.reviews.length===0) return null
     return (
          <div>
+<<<<<<< HEAD
         <Heading title="Đánh giá sản phẩm"/>
+=======
+        <Heading title="Xem xét sản phẩm"/>
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         <div className="text-sm mt-2">
             {product.reviews && product.reviews.map((review:any)=>
             {

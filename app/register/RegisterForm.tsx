@@ -34,7 +34,11 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
         axios
         .post("/api/register",data)
         .then(()=>{
+<<<<<<< HEAD
             toast.success('Tạo tài khoản thành công');
+=======
+            toast.success('Tài khoản đã được tạo');
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
             signIn("credentials",{
                 email: data.email,
                 password: data.password,
@@ -56,7 +60,11 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
     };
     if(currentUser)
     {
+<<<<<<< HEAD
         return <p className="text-center">Đăng nhập.Chờ một xíu...</p>
+=======
+        return <p className="text-center">Đã đăng nhập. Đang chuyển hướng...</p>
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
     }
     return (  <>
     <Heading title="Đăng ký thành viên LuxeGlobal"/>
@@ -67,7 +75,7 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
     onClick={() => {signIn('google') }}/>
     <hr className="bg-slate-300 w-full h-px"/>
     <Input id="name"
-    label="Name"
+    label="Tên người dùng"
     disabled={isLoading} 
     register={register}
     errors={errors}
@@ -79,14 +87,19 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
     errors={errors}
     required/>
     <Input id="password"
-    label="Password"
+    label="Mật khẩu"
     disabled={isLoading} 
     register={register}
     errors={errors}
     required
     type="password"/>
+<<<<<<< HEAD
     <Button label={isLoading?"Loading":'Dang ky'} onClick={handleSubmit(onSubmit)}/>
     <p className="text-sm">Bạn có tài khoản chưa?{""} <Link className="underline" href='/login'>Log in
+=======
+    <Button label={isLoading?"Loading":'Đăng ký'} onClick={handleSubmit(onSubmit)}/>
+    <p className="text-sm">Bạn đã sẵn sàng tạo tài khoản chưa?{""} <Link className="underline" href='/login'>Log in
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
     </Link>
         </p>
     </>);

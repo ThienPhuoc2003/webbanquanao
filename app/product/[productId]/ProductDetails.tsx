@@ -102,16 +102,23 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
             <div>
                 <span className="font-semibold">Thương hiệu:</span>{product.brand}
             </div>
-            <div className={product.inStock?'text-teal-400':'text-rose-400'}>{product.inStock ? 'In Stock' : 'Out of stock'}</div>
+            <div className={product.inStock?'text-teal-400':'text-rose-400'}>{product.inStock ? 'Vẫn còn hàng' : 'Đã hết hàng'}</div>
         <Horizontal/> 
         {
             isProductIncart ?  (<>
             <p className="mb-2 text-slate-500 flex items-center gap-1">
                 <MdCheckCircle className="text-teal-400" size={20}/>
+<<<<<<< HEAD
                     <span>Thêm sản phẩm thành công</span>
             </p>
             <div>
                 <Button label="Xem đơn hàng" outline onClick={() =>{
+=======
+                    <span>Sản phẩm được thêm vào</span>
+            </p>
+            <div>
+                <Button label="Xem giỏ hàng" outline onClick={() =>{
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
                     router.push("/cart");
                 }}
                 />
@@ -130,7 +137,11 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
         <Horizontal/>
         <div className="max-w-[300px]">
          <Button
+<<<<<<< HEAD
             label="Thêm giỏ hàng "
+=======
+            label="Thêm vào giỏ hàng"
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
             onClick={() => handleAddProductToCart(cartProduct)}
          />
          </div>

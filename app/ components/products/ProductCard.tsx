@@ -43,7 +43,7 @@ const ProductCard:React.FC<ProductCardProps> = ({data}) => {
                 </div>
                 <div className=" mt-4">{truncateText(data.name)}</div>
                 <div><Rating value={productRating}  readOnly/></div>
-                <div>{data.reviews.length} reviews</div>
+                <div>{data.reviews.length} đánh giá</div>
                 <div className="font-semibold">{formatPrice(data.price)}</div>
             </div>
         </div>

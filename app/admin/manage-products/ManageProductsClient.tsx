@@ -38,7 +38,11 @@ const ManageProductsClient:React.FC<ManageProductsClientProps> = ({products}) =>
         });
     }
     const columns:GridColDef[]=[
+<<<<<<< HEAD
         {field:'id',headerName:'ID',width:220},
+=======
+        {field:'id',headerName:'Mã',width:220},
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         {field:'name',headerName:'Tên',width:220},
         {field:'price',headerName:'Giá(VND)',width:100,renderCell:(params)=>{
             return(<div className="font-bold text-slate-800">{params.row.price}</div>);
@@ -59,7 +63,7 @@ const ManageProductsClient:React.FC<ManageProductsClientProps> = ({products}) =>
             bg="bg-rose-200"
             color="text-rose-700"/>)}</div>
     );},},
-    {field:"action",headerName:"Actions",width:200,renderCell:(params)=>{
+    {field:"action",headerName:"Hành động",width:200,renderCell:(params)=>{
         return(<div className="flex justify-between gap-4 w-full">
             <ActionBtn icon={MdCached} onClick={()=>{handleToggleStock(params.row.id,params.row.inStock);}}/>
             <ActionBtn icon={MdDelete} onClick={()=>{handleDelete(params.row.id,params.row.images)}}/>
@@ -74,16 +78,24 @@ const handleToggleStock = useCallback((id: string, inStock: boolean) => {
         inStock: !inStock
     })
     .then((res) => {
+<<<<<<< HEAD
         toast.success('Thay đổi trạng thái sản phẩm thành công');
         router.refresh();
     })
     .catch((err) => {
         toast.error('Thay đổi trạng thái thất bại !');
+=======
+        toast.success('Trạng thái sản phẩm đã thay đổi');
+        router.refresh();
+    })
+    .catch((err) => {
+        toast.error('Rất tiếc! Đã xảy ra lỗi');
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         console.log(err);
     });
 }, []);
  const handleDelete=useCallback(async (id:string,images:any[])=>{
-    toast('Delete product,please wait!')
+    toast('Xóa sản phẩm, vui lòng chờ!')
     const handleImageDelete=async()=>{
         try{
             for(const item of images)
@@ -101,7 +113,11 @@ const handleToggleStock = useCallback((id: string, inStock: boolean) => {
     axios.delete(`/api/product/${id}`).then((res) => {
         toast.success('Trạng thái sản phẩm thay đổi thành công');
         router.refresh();}).catch((err)=>{
+<<<<<<< HEAD
             toast.error("Xóa sản phẩm thất bại");
+=======
+            toast.error("Không thể xóa sản phẩm");
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
             console.log(err)
         })
  },[])

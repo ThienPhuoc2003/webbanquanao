@@ -80,7 +80,11 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
     return (
     <div className="max-w-[1150px m-auto]">
         <div className="mb-4 mt-8">
+<<<<<<< HEAD
             <Heading title="Thống kê"center/>
+=======
+            <Heading title="Thống kê" center/>
+>>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         </div>
         <div className="grid grid-cols-2 gap-3 max-h-50vh overflow-y-auto">
             {
