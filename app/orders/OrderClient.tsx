@@ -37,22 +37,17 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         });
     }
     const columns:GridColDef[]=[
-<<<<<<< HEAD
+
         {field:'id',headerName:'ID',width:220},
         {field:'customer',headerName:'Tên',width:130},
-=======
+
         {field:'id',headerName:'Mã khách hàng',width:220},
         {field:'customer',headerName:'Tên khách hàng',width:130},
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         {field:'amount',headerName:'Giá(VND)',width:130,renderCell:(params)=>{
             return(<div className="font-bold text-slate-800">{params.row.amount}</div>);
         },
     },
-<<<<<<< HEAD
-    {field:'deliveryStatus',headerName:"Trạng thái đơn hàng ",width:130,renderCell:(params)=>{
-=======
     {field:'deliveryStatus',headerName:"Tình trạng giao hàng",width:130,renderCell:(params)=>{
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         return(<div>{params.row.deliveryStatus=='pending'?
             (
             <Status text="chưa giải quyết"
@@ -76,11 +71,8 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
         );
     },
     },
-<<<<<<< HEAD
-        {field:'paymentStatus',headerName:"Trạng thái thanh toán",width:130,renderCell:(params)=>{
-=======
+
         {field:'paymentStatus',headerName:"Tình trạng thanh toán",width:130,renderCell:(params)=>{
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
     return(<div>{params.row.paymentStatus=='pending'?
         (
         <Status text="chưa giải quyết"
@@ -105,11 +97,10 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
     headerName:"Thời gian",
     width:130,
 },
-<<<<<<< HEAD
+
     {field:"action",headerName:"Hoạt động",width:200,renderCell:(params)=>{
-=======
-    {field:"action",headerName:"Hành động",width:200,renderCell:(params)=>{
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
+
         return(<div className="flex justify-between gap-4 w-full">
            
             <ActionBtn icon={MdRemoveRedEye} onClick={()=>{router.push(`/order/${params.row.id}`)}}/>
@@ -120,11 +111,8 @@ const OrdersClient:React.FC<OrdersClientProps> = ({orders}) => {
  
     return ( <div className="max-w-[1150px] m-auto text-x1">
         <div className="mb-4 mt-8">
-<<<<<<< HEAD
             <Heading title="Quản lý đơn hàng " center />
-=======
-            <Heading title="Quản lý đơn hàng" center />
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+            
         </div >
         <div style={{height:600 ,width:"100%"}}>
         <DataGrid
