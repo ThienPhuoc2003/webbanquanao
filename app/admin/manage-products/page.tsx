@@ -11,7 +11,7 @@ const ManageProducts = async () => {
 
     if(!currentUser||currentUser.role != 'ADMIN')
     {
-        return <NullData title='Oops! Access denied'/>;
+        return <NullData title='Bạn không có quyền truy cập'/>;
     }
     return (  <div className="pt-8"><Container>
         <ManageProductsClient products={products}/>

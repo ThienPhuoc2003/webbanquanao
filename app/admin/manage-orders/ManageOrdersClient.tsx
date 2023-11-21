@@ -29,7 +29,7 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
             return{
                 id:order.id,
                 customer:order.user.name,
-                amount:formatPrice(order.amount/100),
+                amount:formatPrice(order.amount ),
                 paymentStatus:order.status,
                 date:moment(order.createDate).fromNow(),
                 deliveryStatus:order.deliveryStatus,
@@ -38,12 +38,12 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
     }
     const columns:GridColDef[]=[
         {field:'id',headerName:'ID',width:220},
-        {field:'customer',headerName:'Customer Name',width:130},
+        {field:'customer',headerName:'Khách hàng',width:130},
         {field:'amount',headerName:'Tiền(VNĐ)',width:130,renderCell:(params)=>{
             return(<div className="font-bold text-slate-800">{params.row.amount}</div>);
         },
     },
-    {field:'deliveryStatus',headerName:"Delivery Status",width:130,renderCell:(params)=>{
+    {field:'deliveryStatus',headerName:"Giao hàng thành công",width:130,renderCell:(params)=>{
         return(<div>{params.row.deliveryStatus=='pending'?
             (
             <Status text="pending"
@@ -67,7 +67,7 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
         );
     },
     },
-        {field:'paymentStatus',headerName:"Payment Status",width:130,renderCell:(params)=>{
+        {field:'paymentStatus',headerName:"Trạng thái thanh toán",width:130,renderCell:(params)=>{
     return(<div>{params.row.paymentStatus=='pending'?
         (
         <Status text="pending"
@@ -89,7 +89,7 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
     },
 {
     field:"date",
-    headerName:"Date",
+    headerName:"Ngày",
     width:130,
 },
     {field:"action",headerName:"Actions",width:200,renderCell:(params)=>{
@@ -107,11 +107,11 @@ const handleDispatch = useCallback((id: string) => {
         deliveryStatus:'dispatched'
     })
     .then((res) => {
-        toast.success('Order Dispatched ');
+        toast.success('Đơn hàng đã được gửi đi');
         router.refresh();
     })
     .catch((err) => {
-        toast.error('Oops! Something went wrong');
+        toast.error('Ối! Đã xảy ra lỗi');
         console.log(err);
     });
 }, []);
@@ -123,18 +123,18 @@ const handleDeliver = useCallback((id: string) => {
         deliveryStatus:'delivered'
     }) 
     .then((res) => {
-        toast.success('Order Delivered');
+        toast.success('Giao hàng');
         router.refresh();
     })
     .catch((err) => {
-        toast.error('Oops! Something went wrong');
+        toast.error('Ối! Đã xảy ra lỗi');
         console.log(err);
     });
 }, []);
  
     return ( <div className="max-w-[1150px] m-auto text-x1">
         <div className="mb-4 mt-8">
-            <Heading title="Manage Orders" center />
+            <Heading title="Quản lý đặt hàng " center />
         </div >
         <div style={{height:600 ,width:"100%"}}>
         <DataGrid

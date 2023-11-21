@@ -11,7 +11,7 @@ const ListRating:React.FC<ListRatingProps> = ({product}) => {
     if(product.reviews.length===0) return null
     return (
          <div>
-        <Heading title="Product Review"/>
+        <Heading title="Đánh giá sản phẩm"/>
         <div className="text-sm mt-2">
             {product.reviews && product.reviews.map((review:any)=>
             {

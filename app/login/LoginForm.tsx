@@ -40,7 +40,7 @@ const LoginForm:React.FC<LoginFormProps> = ({currentUser}) => {
       if (callback?.ok) {
         router.push("/cart");
         router.refresh();
-        toast.success('Logged In');
+        toast.success('Đăng nhập');
       }
       if (callback?.error) {
         toast.error(callback.error);
@@ -49,7 +49,7 @@ const LoginForm:React.FC<LoginFormProps> = ({currentUser}) => {
   };
 if(currentUser)
 {
-  return<p className="text-center">Logged in .Redirecting...</p>
+  return<p className="text-center">Đã đang nhập,chờ một xíu...</p>
 }
   return (
     <>

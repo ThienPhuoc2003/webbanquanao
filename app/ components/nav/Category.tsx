@@ -15,8 +15,8 @@ const Category:React.FC<CategoryProps> = ({label,icon:Icon,selected}) => {
     const router=useRouter()
     const params=useSearchParams()
     const handleClick = useCallback(()=>{
-        if(label=='All')
-     {   router.push('/')
+        if(label=='Tất cả')
+     {   router.push('http://localhost:3000');
     } else {let currentQuery={};
 if(params)
 {
@@ -41,7 +41,7 @@ router.push(url)
     gap-1 p-2 border-b-2 hover:text-slate-800 transition cursor-pointer
     ${selected?'border-b-slate-800 text-slate-800':'border-transparent text-slate-500'}
     `}>
-        <Icon size={20}/>
+        <Icon size={30}/>
         <div className="font-medium text-sm">{label}</div>
     </div>);
 }

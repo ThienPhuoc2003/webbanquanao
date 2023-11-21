@@ -17,7 +17,7 @@ const AdminNavItem:React.FC<AdminNavItemProps> = ({
        hover:text-slate-800 transition 
        cursor-pointer${selected ? 
        'border-b-slate-800 text-slate-800':'border-transparent text-slate-500'}`}>
-        <Icon size={20}/>
+        <Icon size={25}/>
         <div className="font-medium text-sm text-center break-normal">{label}</div>
     </div> );
 }

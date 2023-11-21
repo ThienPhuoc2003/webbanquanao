@@ -11,7 +11,7 @@ export async function POST(request:Request) {
     const {comment,rating,product,userId}=body;
 
     const deliveredOrder=currentUser?.orders.some(order=>order.products.find(item=>item.id===product.id)
-        && order.deliveryStatus==='delivered');
+        && order.deliveryStatus==='đã giao');
     const userReview=product?.reviews.find((review:Review)=>{
         return review.userId===currentUser.id;
     })

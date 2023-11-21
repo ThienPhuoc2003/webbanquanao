@@ -12,7 +12,7 @@ const ManageOrders = async () => {
 
     if(!currentUser||currentUser.role != 'ADMIN')
     {
-        return <NullData title='Oops! Access denied'/>;
+        return <NullData title='Không thể truy cập'/>;
     }
     return (  <div className="pt-8"><Container>
         <ManageOrdersClient orders={orders}/>

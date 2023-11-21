@@ -41,16 +41,16 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
 
         if(data.rating===0){
             setIsLoading(false)
-            return toast.error('No rating selected')
+            return toast.error('Không có đánh giá nào được chọn')
        } 
        const ratingData={...data,userId:user?.id,product:product}
 
         axios.post('/api/rating',ratingData).then(()=>{
-            toast.success('Rating submitted');
+            toast.success('Đã gửi xếp hạng');
             router.refresh()
             reset()
         }).catch((error)=>{
-            toast.error('Something went wrong')
+            toast.error('Đã xảy ra lỗi')
         }).finally(()=>{
             setIsLoading(false)
         })
@@ -68,19 +68,19 @@ const AddRating:React.FC<AddRatingProps>=({product,user})=>{
 
     return(
         <div className="flex flex-col gap-2  max-w-[500px]">
-            <Heading title="Rate this product"/>
+            <Heading title="Đánh giá sản phẩm này"/>
             <Rating onChange={(event,newValue)=>{
                 setCustomValue('rating',newValue)
             }}/>
             <Input
                 id='comment'
-                label='comment'
+                label='Bình luận'
                 disabled={isLoading}
                 register={register}
                 errors={errors}
                 required
-            />
-            <Button label={isLoading ?"Loading": 'Rate Product'} onClick={handleSubmit(onSubmit)}/>
+            />  
+            <Button label={isLoading ?"Đang tải": 'Đánh giá sản phẩm'} onClick={handleSubmit(onSubmit)}/>
         </div>
     );
 }

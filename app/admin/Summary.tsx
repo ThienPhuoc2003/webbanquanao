@@ -28,7 +28,7 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
             digit:0
         },
         products:{
-            lable:'Total Products',
+            lable:'Tổng số sản phẩm',
             digit:0
         },
         orders:{
@@ -36,7 +36,7 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
             digit:0
         },
         paidOrders:{
-            lable:'Paid Orders',
+            lable:'Đơn đặt hàng đã thanh toán',
             digit:0
         },
         unpaidOrders:{
@@ -80,7 +80,7 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
     return (
     <div className="max-w-[1150px m-auto]">
         <div className="mb-4 mt-8">
-            <Heading title="Stats" center/>
+            <Heading title="Thống kê"center/>
         </div>
         <div className="grid grid-cols-2 gap-3 max-h-50vh overflow-y-auto">
             {
@@ -94,13 +94,11 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
                         }
                     </div>
                     <div>{summaryData[key].lable}</div>
-                </div>
-                                       
+                </div>       
                 })
             }
         </div>
     </div>
   );
 }
-
 export default Summary

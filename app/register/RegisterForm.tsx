@@ -34,7 +34,7 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
         axios
         .post("/api/register",data)
         .then(()=>{
-            toast.success('Account created');
+            toast.success('Tạo tài khoản thành công');
             signIn("credentials",{
                 email: data.email,
                 password: data.password,
@@ -43,20 +43,20 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
                 if(callback?.ok) {
                     router.push("/cart");
                     router.refresh();
-                    toast.success('Logged In');
+                    toast.success('Đăng nhập');
                 }
                 if(callback?.error)
                 {
                     toast.error(callback.error);
                 }
             });
-        }).catch(()=> toast.error("Something went wrong")).finally(()=>{
+        }).catch(()=> toast.error("Đã xảy ra lỗi")).finally(()=>{
             setIsLoading(false)
         })
     };
     if(currentUser)
     {
-        return <p className="text-center">Logged in. Redirecting...</p>
+        return <p className="text-center">Đăng nhập.Chờ một xíu...</p>
     }
     return (  <>
     <Heading title="Đăng ký thành viên LuxeGlobal"/>
@@ -86,7 +86,7 @@ const RegisterForm:React.FC<RegisterFormProps> = ({currentUser}) => {
     required
     type="password"/>
     <Button label={isLoading?"Loading":'Dang ky'} onClick={handleSubmit(onSubmit)}/>
-    <p className="text-sm">Already have an account?{""} <Link className="underline" href='/login'>Log in
+    <p className="text-sm">Bạn có tài khoản chưa?{""} <Link className="underline" href='/login'>Log in
     </Link>
         </p>
     </>);
