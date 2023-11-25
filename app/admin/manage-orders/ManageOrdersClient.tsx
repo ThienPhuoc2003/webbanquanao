@@ -37,22 +37,14 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
         });
     }
     const columns:GridColDef[]=[
-<<<<<<< HEAD
-        {field:'id',headerName:'ID',width:220},
-        {field:'customer',headerName:'Khách hàng',width:130},
-=======
         {field:'id',headerName:'Mã khách hàng',width:220},
         {field:'customer',headerName:'Tên khách hàng',width:130},
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         {field:'amount',headerName:'Tiền(VNĐ)',width:130,renderCell:(params)=>{
             return(<div className="font-bold text-slate-800">{params.row.amount}</div>);
         },
     },
-<<<<<<< HEAD
-    {field:'deliveryStatus',headerName:"Giao hàng thành công",width:130,renderCell:(params)=>{
-=======
+
     {field:'deliveryStatus',headerName:"Tình trạng giao hàng",width:130,renderCell:(params)=>{
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         return(<div>{params.row.deliveryStatus=='pending'?
             (
             <Status text="chưa giải quyết"
@@ -76,11 +68,9 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
         );
     },
     },
-<<<<<<< HEAD
-        {field:'paymentStatus',headerName:"Trạng thái thanh toán",width:130,renderCell:(params)=>{
-=======
+       
         {field:'paymentStatus',headerName:"Tình trạng thanh toán",width:130,renderCell:(params)=>{
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
     return(<div>{params.row.paymentStatus=='pending'?
         (
         <Status text="chưa giải quyết"
@@ -102,11 +92,7 @@ const ManageOrdersClient:React.FC<ManageOrdersClientProps> = ({orders}) => {
     },
 {
     field:"date",
-<<<<<<< HEAD
-    headerName:"Ngày",
-=======
     headerName:"Thời gian",
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
     width:130,
 },
     {field:"action",headerName:"Hành động",width:200,renderCell:(params)=>{
@@ -124,19 +110,14 @@ const handleDispatch = useCallback((id: string) => {
         deliveryStatus:'dispatched'
     })
     .then((res) => {
-<<<<<<< HEAD
+
         toast.success('Đơn hàng đã được gửi đi');
         router.refresh();
     })
     .catch((err) => {
         toast.error('Ối! Đã xảy ra lỗi');
-=======
-        toast.success('Đơn hàng đã được gửi đi ');
-        router.refresh();
-    })
-    .catch((err) => {
-        toast.error('Rất tiếc! Đã xảy ra lỗi');
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
+
         console.log(err);
     });
 }, []);
@@ -152,22 +133,18 @@ const handleDeliver = useCallback((id: string) => {
         router.refresh();
     })
     .catch((err) => {
-<<<<<<< HEAD
-        toast.error('Ối! Đã xảy ra lỗi');
-=======
+
         toast.error('Rất tiếc! Đã xảy ra lỗi');
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
         console.log(err);
     });
 }, []);
  
     return ( <div className="max-w-[1150px] m-auto text-x1">
         <div className="mb-4 mt-8">
-<<<<<<< HEAD
-            <Heading title="Quản lý đặt hàng " center />
-=======
+
             <Heading title="Quản lý đơn hàng" center />
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
         </div >
         <div style={{height:600 ,width:"100%"}}>
         <DataGrid

@@ -81,8 +81,6 @@ const Summary:React.FC<SummaryProps> = ({orders,products,users}) => {
     <div className="max-w-[1150px m-auto]">
         <div className="mb-4 mt-8">
             <Heading title="Thống kê"center/>
-
-            <Heading title="Thống kê" center/>
         </div>
         <div className="grid grid-cols-2 gap-3 max-h-50vh overflow-y-auto">
             {

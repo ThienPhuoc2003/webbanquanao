@@ -83,7 +83,7 @@ const AddProductForm = () => {
                           const fileName =new Date().getTime() + '-' + item.image.name;
                         const storage = getStorage(firebaseApp)
                         const storageRef = ref(storage,`products/${fileName}`);
-                        const uploadTask = uploadBytesResumable(storageRef,item.image);
+const uploadTask = uploadBytesResumable(storageRef,item.image);
                         await new Promise<void>((resolve,reject)=>{
                             uploadTask.on(
                                 'state_changed',
@@ -130,19 +130,11 @@ const AddProductForm = () => {
         const productData={...data,images:UploadedImages};
 
        axios.post('/api/product',productData).then(()=>{
-<<<<<<< HEAD
-        toast.success('Thêm sản phẩm thành công');
-        setIsProductCreated(true);
-        router.refresh();
-       }).catch((error)=>{
-        toast.error('đã xảy ra vấn đề khi lưu vào database');
-=======
         toast.success('Sản phẩm đã được tạo');
         setIsProductCreated(true);
         router.refresh();
        }).catch((error)=>{
         toast.error('Đã xảy ra lỗi khi lưu sản phẩm vào dữ liệu');
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
        }).finally(()=>{
         setIsLoading(false);
        });
@@ -158,7 +150,7 @@ const AddProductForm = () => {
         })
     }
     const addImageToState = useCallback((value:ImageType)=>{
-        setImages((prev)=>{
+setImages((prev)=>{
             if(!prev){
                 return[value]
             }
@@ -176,11 +168,7 @@ const AddProductForm = () => {
 }
 )},[])
     return (  <>
-<<<<<<< HEAD
-    <Heading title="Add a Product " center/>
-=======
     <Heading title="Thêm một sản phẩm " center/>
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
     <Input id="name" label="Tên" disabled={isLoading} 
     register={register}
     errors={errors}
@@ -198,17 +186,10 @@ const AddProductForm = () => {
     register={register}
     errors={errors}
     required />
-<<<<<<< HEAD
-    <CustomCheckBox id="inStock"register={register} label="Hàng có sẵn"/>
-
-    <div className="w-full font-medium ">
-        <div className="mb-2 font-semibold">Chọn loại</div>
-=======
     <CustomCheckBox id="inStock"register={register} label="Sản phẩm này còn trong kho"/>
 
     <div className="w-full font-medium ">
         <div className="mb-2 font-semibold">Chọn một danh mục</div>
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-h[50vh] overflow-y-auto">
             {
             categories.map((item)=>{
@@ -228,12 +209,7 @@ const AddProductForm = () => {
                 <div className="font-bold">
                 Chọn màu sắc sản phẩm có sẵn và tải lên hình ảnh của chúng
                 </div>
-<<<<<<< HEAD
-                <div className="font-bold">Bạn phải tải lên hình ảnh cho từng màu được chọn nếu không
-                 lựa chọn màu sắc sẽ bị bỏ qua</div>
-=======
                 <div className="font-bold">Vui lòng chọn và tải ảnh lên </div>
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
             </div>
             <div className="grid grid-cols-2 gap-3">
                 {colors.map((item,index)=>{
@@ -244,11 +220,7 @@ const AddProductForm = () => {
                 />)
             })}</div>
          </div>
-<<<<<<< HEAD
-         <Button label={isLoading?'Đang tải...':'Add Product'}onClick={handleSubmit(onSubmit)}/>
-=======
          <Button label={isLoading?'Đang tải...':'Thêm sản phẩm'}onClick={handleSubmit(onSubmit)}/>
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
  </>
     );
 }

@@ -38,11 +38,9 @@ const ManageProductsClient:React.FC<ManageProductsClientProps> = ({products}) =>
         });
     }
     const columns:GridColDef[]=[
-<<<<<<< HEAD
-        {field:'id',headerName:'ID',width:220},
-=======
+
         {field:'id',headerName:'Mã',width:220},
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
         {field:'name',headerName:'Tên',width:220},
         {field:'price',headerName:'Giá(VND)',width:100,renderCell:(params)=>{
             return(<div className="font-bold text-slate-800">{params.row.price}</div>);
@@ -78,19 +76,13 @@ const handleToggleStock = useCallback((id: string, inStock: boolean) => {
         inStock: !inStock
     })
     .then((res) => {
-<<<<<<< HEAD
-        toast.success('Thay đổi trạng thái sản phẩm thành công');
-        router.refresh();
-    })
-    .catch((err) => {
-        toast.error('Thay đổi trạng thái thất bại !');
-=======
+
         toast.success('Trạng thái sản phẩm đã thay đổi');
         router.refresh();
     })
     .catch((err) => {
         toast.error('Rất tiếc! Đã xảy ra lỗi');
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
         console.log(err);
     });
 }, []);
@@ -113,11 +105,9 @@ const handleToggleStock = useCallback((id: string, inStock: boolean) => {
     axios.delete(`/api/product/${id}`).then((res) => {
         toast.success('Trạng thái sản phẩm thay đổi thành công');
         router.refresh();}).catch((err)=>{
-<<<<<<< HEAD
-            toast.error("Xóa sản phẩm thất bại");
-=======
+
             toast.error("Không thể xóa sản phẩm");
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
             console.log(err)
         })
  },[])

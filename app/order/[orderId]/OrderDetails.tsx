@@ -58,21 +58,14 @@ interface OrderDetailsProps {
         </div>
         <div>Ngày: {moment(order.createDate).fromNow()}</div>
         <div>
-<<<<<<< HEAD
-          <h2 className="font-semibold mt-4 mb-2">Sản phẩm đã đặt</h2>
-          <div className="grid grid-cols-5 text-sx gap-4 pb-2 items-center">
-            <div className="col-span-2 justify-self-start">Sản phẩm</div>
-            <div className="justify-self-center">Giá</div>
-            <div className="justify-self-center">Số lượng</div>
-            <div className="justify-self-end">Tổng</div>
-=======
+
           <h2 className="font-semibold mt-4 mb-2">Sản phẩm đã đặt hàng</h2>
           <div className="grid grid-cols-5 text-sx gap-4 pb-2 items-center">
             <div className="col-span-2 justify-self-start">Sản phẩm</div>
             <div className="justify-self-center">Gía</div>
             <div className="justify-self-center">Số lượng</div>
             <div className="justify-self-end">Tổng cộng</div>
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
+
           </div>
           {order.products &&
             order.products.map((item) => {
