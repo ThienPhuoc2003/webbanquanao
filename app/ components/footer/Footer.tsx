@@ -8,7 +8,7 @@ const Footer  = () => {
     return ( <footer className="bg-slate-700 text-slate-200 text-sm mt-16">
         <Container>
             <div className="flex flex-col md:flex-row justify-between pt-16 pb-8">
-<<<<<<< HEAD
+
                         <FooterList>
             <h3 className="text-base font-bold mb-2">Danh mục cửa hàng</h3>
             <Link href="/?category=Áo Nam">Áo Nam</Link>
@@ -18,8 +18,6 @@ const Footer  = () => {
             <Link href="/?category=Áo khoát">Áo khoát</Link>
             <Link href="/?category=Phụ kiện">Phụ kiện</Link>
             </FooterList>
-
-=======
                 <FooterList>
                     <h3 className="text-base font-bold mb-2">Danh mục cửa hàng</h3>
                     <Link href="/?category=Áo Nam">Áo Nam</Link>
@@ -29,8 +27,6 @@ const Footer  = () => {
                     <Link href="/?category=Áo khoác">Áo khoác</Link>
                     <Link href="/?category=Phụ kiện">Phụ kiện</Link>
                 </FooterList>
-             
->>>>>>> 56946f97d0ecc650cb0506041bde71dc6d7cdaa8
                 <FooterList>
                     <h3 className="text-base font-bold
                     mb-2">Dịch vụ khách hàng</h3>
