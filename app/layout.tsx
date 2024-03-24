@@ -9,6 +9,7 @@ import CartProvider from './ components/providers/CartProvider'
 import { ToastBar, Toaster } from 'react-hot-toast'
 import { getCurrentUser } from '@/actions/getCurrentUser'
 
+
 export const metadata: Metadata = {
   title: 'LuxeGlobal',
   description: 'Web bán quần áo',
@@ -27,6 +28,7 @@ export default async function RootLayout({
     <html lang="vi">
       <body className={`${poppins.className} 
       text-slate-700`}>
+        
         <Toaster toastOptions={
           {
             style:{background:'rgb(51 65 85)',
@@ -40,7 +42,30 @@ export default async function RootLayout({
         <Footer/>
         </div>
         </CartProvider>
+
+        <div dangerouslySetInnerHTML={{__html:`
+            <script>
+              window.fbAsyncInit = function() {
+                    FB.init({
+                        appId: "1784956665094089",
+                        xfbml: true,
+                        version: "v2.6"
+                    });
+                };
+                (function(d, s, id){
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) { return; }
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+          <div class="fb-customerchat" page_id="264410966755812"></div>
+        `}}>
+            
+        </div>
       </body>
+      
     </html>
   )
 }
