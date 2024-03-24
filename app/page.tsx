@@ -38,6 +38,7 @@ const shuffleProducts=shuffleArray(products)
               // eslint-disable-next-line react/jsx-key
               return <ProductCard data={product} />;            
             })}
+            
           </div>
       </Container>
     </div>
