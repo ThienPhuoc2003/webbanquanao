@@ -1,17 +1,18 @@
-import  Container  from "../ components/Container";
+import React from 'react';
+import Container from "../ components/Container";
 import FormWrap from "../ components/products/FormWrap";
 import CheckoutClient from "./CheckoutClient";
 
-const Checkout = () => {
-    return ( <div
-    className="p-8">
-        <Container>
-            <FormWrap>
-                <CheckoutClient/> 
-            </FormWrap>
-        </Container>
-
-    </div> );
+const CheckoutPage: React.FC = () => {
+    return (
+        <div className="p-8">
+            <Container>
+                <FormWrap>
+                    <CheckoutClient />
+                </FormWrap>
+            </Container>
+        </div>
+    );
 }
- 
-export default Checkout;
+
+export default CheckoutPage;
