@@ -1,50 +1,42 @@
-'use client'
-
+import React, { useEffect, useState } from 'react';
 import { useCart } from "@/hooks/useCart";
-import { formatPrice } from "@/utils/formatPrice";
-import { PaymentElement, useElements, useStripe,AddressElement } from "@stripe/react-stripe-js";
-import { Result } from "postcss";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import Heading from "../ components/Heading";
+import { PaymentElement, useElements, useStripe, AddressElement } from "@stripe/react-stripe-js";
 import Button from "../ components/Button";
-import styles from './styles.module.css';
-interface CheckoutFormProps{
-    clientSecret: string,
-    handleSetPaymentSuccess:(value:boolean)=>void
+import toast from 'react-hot-toast';
+
+interface CheckoutFormProps {
+    clientSecret: string;
+    handleSetPaymentSuccess: (value: boolean) => void;
 }
-const CheckoutForm:React.FC<CheckoutFormProps> = ({clientSecret,handleSetPaymentSuccess}) => {
-    // const allCountries = [
-    //     'US', 'VN', 'CA', 'GB', 'FR', 'DE', 'AU', 'JP', 'CN', 'IN','NK' // Thêm các quốc gia khác nếu cần
-    //   ];
-    const{cartTotalAmount,handleClearCart,handleSetPaymentIntent}=useCart()
-    const stripe =useStripe();
+
+const CheckoutForm: React.FC<CheckoutFormProps> = ({ clientSecret, handleSetPaymentSuccess }) => {
+    const { cartTotalAmount, handleClearCart, handleSetPaymentIntent } = useCart()
+    const stripe = useStripe();
     const elements = useElements();
-    const [isLoading,setIsLoading] = useState(false);
-    const formattedPrice = formatPrice(cartTotalAmount);
-    useEffect(()=>{
-        if(!stripe){
+    const [isLoading, setIsLoading] = useState(false);
+    const formattedPrice = cartTotalAmount.toString(); // Assuming formatPrice returns a string
+
+    useEffect(() => {
+        if (!stripe) {
             return;
         }
-        if(!clientSecret){
+        if (!clientSecret) {
             return;
         }
         handleSetPaymentSuccess(false)
-    },[stripe]);
+    }, [stripe]);
 
-    const handleSubmit =async(e:React.FormEvent)=>{
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if(!stripe || !elements)
-        {
+        if (!stripe || !elements) {
             return;
-        
         }
         setIsLoading(true)
         stripe.confirmPayment({
-            elements,redirect:'if_required'
-        }).then(result=>{
-            if(!result.error)
-            {
+            elements, redirect: 'if_required'
+        }).then(result => {
+            if (!result.error) {
+                // Assuming toast is a function to display a success message
                 toast.success('Thanh toán thành công');
                 handleClearCart();
                 handleSetPaymentSuccess(true);
@@ -53,24 +45,28 @@ const CheckoutForm:React.FC<CheckoutFormProps> = ({clientSecret,handleSetPayment
             setIsLoading(false);
         })
     }
-    return (  <form onSubmit={handleSubmit} id="payment_form">
-        <div className="mb-6 text-center">
-            <h1 className="text-2xl font-bold">Nhập thông tin của bạn để hoàn tất thanh toán</h1>
-        </div>
 
-        <h2 className="font-semibold mb-2">
-        Thông tin địa chỉ
-        </h2>
-        <AddressElement options={{mode:'shipping',allowedCountries: /*allCountries*/ ["VN","KE",'US', 'VN', 'CA', 'GB', 'FR', 'DE', 'AU', 'JP', 'CN', 'IN','NK']}}/>
-        <h2 className="font-semibold mt-4 mb-2">Thông tin thanh toán</h2>
-        <PaymentElement id="payment-element" options={{layout:"tabs"}}/>
-        <div className="py-4 text-center text-slate-700 text-x1 font-bold">
-        Tổng cộng:{formattedPrice}
-        </div>
+    return (
+        <form onSubmit={handleSubmit} id="payment_form">
+            <div className="mb-6 text-center">
+                <h1 className="text-2xl font-bold">Nhập thông tin của bạn để hoàn tất thanh toán</h1>
+            </div>
 
-        <Button label={isLoading? 'Đang xử lý':'Thanh toán ngay'} disabled={isLoading || !stripe || !elements } onClick={()=>{}}/>
+            <h2 className="font-semibold mb-2">
+                Thông tin địa chỉ
+            </h2>
+            <AddressElement options={{ mode: 'shipping' }} />
+            <h2 className="font-semibold mt-4 mb-2">Thông tin thanh toán</h2>
+            <PaymentElement id="payment-element" />
+            <div className="py-4 text-center text-slate-700 text-x1 font-bold">
+                Tổng cộng:{formattedPrice}
+            </div>
 
-        </form>);
+            <Button label={isLoading ? 'Đang xử lý' : 'Thanh toán ngay'} disabled={isLoading || !stripe || !elements} onClick={() => { }} />
+        </form>
+    );
 }
- 
+
 export default CheckoutForm;
+
+ 
