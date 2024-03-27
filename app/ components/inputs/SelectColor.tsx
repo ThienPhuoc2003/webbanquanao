@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import SelectImage from "./SelectImage";
 import Button from "../Button";
 
+
 interface SelectColorProps{
     item:ImageType;
     addImageToState:(value: ImageType)=>void;
